@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Link } from "react-router-dom";
 import Profile from "./Profile";
+import WithRouteSample from "./WithRouteSample";
 
 const Profiles = () => {
   return (
@@ -16,6 +17,7 @@ const Profiles = () => {
       </ul>
       <Route path="/profiles" exact render={() => <div>Select User</div>} />
       <Route path="/profiles/:username" component={Profile} />
+      <WithRouteSample />
     </div>
   );
 };
