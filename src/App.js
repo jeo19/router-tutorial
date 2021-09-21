@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Link } from "react-router-dom";
+import { Switch, Route, Link } from "react-router-dom";
 import Home from "./Home";
 import About from "./About";
 import Profiles from "./Profiles";
@@ -23,10 +23,21 @@ const App = () => {
         </li>
       </ul>
       <hr />
-      <Route path="/" exact={true} component={Home}></Route>
-      <Route path="/about" component={About}></Route>
-      <Route path="/profiles" component={Profiles}></Route>
-      <Route path="/history" component={HistorySample}></Route>
+      <Switch>
+        <Route path="/" exact={true} component={Home}></Route>
+        <Route path="/about" component={About}></Route>
+        <Route path="/profiles" component={Profiles}></Route>
+        <Route path="/history" component={HistorySample}></Route>
+        <Route
+          render={({ location }) => (
+            //if you do not define a path, this page appearance anywhere.
+            <div>
+              <h2>Doesn't exist this page</h2>
+              <p>{location.pathname}</p>
+            </div>
+          )}
+        ></Route>
+      </Switch>
     </div>
   );
 };
